@@ -98,9 +98,10 @@ Call the function and pass in the cats array as the argument.
 
 Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container.*/
 
+
+let html = "";
+
 const catContainer = document.querySelector(".cat-container");
-
-
 
 
 createCats = function (cats) {
@@ -108,17 +109,19 @@ createCats = function (cats) {
         let age = "Age unknown";
         if (typeof cats[i].age !== "undefined" && cats[i].age !== null)
             age = cats[i].age;
-        catContainer.innerHTML = `
+
+        html = html + `
        <div>
        <h5>${cats[i].name}</h5>
        <p>${cats[i].age}</p>
-
        </div>
-
        `
     }
+
 };
 
 createCats(cats);
+
+catContainer.innerHTML = html;
 
 
