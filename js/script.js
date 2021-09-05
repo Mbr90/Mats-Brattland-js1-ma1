@@ -1,3 +1,17 @@
+const cats = [
+    {
+        name: "Blob",
+        age: 10
+    },
+    {
+        name: "Harold",
+    },
+    {
+        name: "Blurt",
+        age: 21
+    }
+];
+
 /*Level 1
 Question 1:
 Create an object called cat.
@@ -8,14 +22,12 @@ const cat = {
     colour: "black",
     name: "Dusk",
     complain: function () {
-        console.log("Meow!");
+        console.log("Meow!")
     }
 
 };
 
 cat.complain();
-
-
 
 /*Question 2:
 Select the h3 from the HTML using the querySelector method and assign it to a variable called heading.
@@ -25,9 +37,6 @@ Change its innerHTML value to "Updated heading". */
 const heading = document.querySelector("h3");
 
 heading.innerHTML = "Updated heading";
-
-
-
 
 /*Question 3:
 Use the style property on the heading variable from the question above to change its font size to "2em".*/
@@ -54,6 +63,10 @@ for (let i = 0; i < paragraphs.length; i++) {
 /*Question 6:
 Select the div with a class of results, assign it to a variable called resultsContainer and set its inner HTML to be <p>New paragraph</p> and its background colour to be yellow.*/
 
+const resultsContainer = document.querySelector(".results");
+
+resultsContainer.innerHTML = "<p>New paragraph</p";
+resultsContainer.style.backgroundColor = "yellow";
 
 /*Question 7:
 Create a function that has one parameter called list.
@@ -62,6 +75,13 @@ Inside the function, loop through the list parameter and console log the name pr
 
 Call the function and pass in the cats variable in the script.js file in the repo.*/
 
+listFunction = function (list) {
+    for (let i = 0; i < list.length; i++) {
+        console.log(list[i].name)
+    }
+};
+
+listFunction(cats);
 
 /*Question 8:
 Create a function called createCats. The function will have one parameter called cats.
@@ -78,16 +98,27 @@ Call the function and pass in the cats array as the argument.
 
 Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container.*/
 
-const cats = [
-    {
-        name: "Blob",
-        age: 10
-    },
-    {
-        name: "Harold",
-    },
-    {
-        name: "Blurt",
-        age: 21
+const catContainer = document.querySelector(".cat-container");
+
+
+
+
+createCats = function (cats) {
+    for (let i = 0; i < cats.length; i++) {
+        let age = "Age unknown";
+        if (typeof cats[i].age !== "undefined" && cats[i].age !== null)
+            age = cats[i].age;
+        catContainer.innerHTML = `
+       <div>
+       <h5>${cats[i].name}</h5>
+       <p>${cats[i].age}</p>
+
+       </div>
+
+       `
     }
-];
+};
+
+createCats(cats);
+
+
