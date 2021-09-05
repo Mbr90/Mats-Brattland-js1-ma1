@@ -109,13 +109,12 @@ createCats = function (cats) {
         let age = "Age unknown";
         if (typeof cats[i].age !== "undefined" && cats[i].age !== null)
             age = cats[i].age;
-
         html = html + `
-       <div>
-       <h5>${cats[i].name}</h5>
-       <p>${cats[i].age}</p>
-       </div>
-       `
+        <div>
+        <h5>${cats[i].name}</h5>
+        <p>${cats[i].age}</p>
+        </div>
+        `
     }
 
 };
